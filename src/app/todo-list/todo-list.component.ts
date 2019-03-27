@@ -10,7 +10,7 @@ import Todo from '../model/Todo';
 export class TodoListComponent implements OnInit {
 
 	@Input()
-	todos:Todo<Array>;
+	todos:Todo[];
 
 	@Output()
 	todoChecked:EventEmitter<Todo> = new EventEmitter<Todo>();

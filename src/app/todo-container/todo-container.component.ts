@@ -10,7 +10,7 @@ import _ from 'lodash';
 export class TodoContainerComponent implements OnInit {
 
 	@Input()
-	todos:Array<Todo> = [] //todosData.map(todo => new Todo(todo.id, todo.title, todo.isDone));
+	todos:Todo[] = []; //todosData.map(todo => new Todo(todo.id, todo.title, todo.isDone));
 
 	@Input()
 	todoToAdd:string;
