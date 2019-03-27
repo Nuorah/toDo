@@ -1,0 +1,7 @@
+.todoItem{
+	display: inline-block;
+	margin:auto;
+	height:auto;
+	width: max-content;
+	overflow:unset;
+}

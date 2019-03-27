@@ -1,3 +1,9 @@
 .done {
 	text-decoration: line-through;
 }
+
+.todoCard{
+	margin:auto;
+	width: max-content;
+	align-self: center;
+}

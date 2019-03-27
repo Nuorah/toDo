@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material';
 import Todo from '../model/Todo';
 
 @Component({
@@ -19,9 +21,11 @@ export class TodoItemComponent implements OnInit {
 		this.todoChecked.emit(this.todo);
 	}
 
-	
-
-	constructor() { }
+	constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+		iconRegistry.addSvgIcon(
+			'delete',
+			sanitizer.bypassSecurityTrustResourceUrl('assets/img/delete.svg'));
+	}
 
 	ngOnInit() {
 	}

@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {MatButtonModule, MatCheckboxModule, MatCardModule, MatListModule, MatInputModule} from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+
+import {MatButtonModule, MatCheckboxModule, MatCardModule, MatListModule, MatInputModule, MatIconModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -21,11 +23,13 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
