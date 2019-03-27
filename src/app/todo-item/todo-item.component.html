@@ -1,0 +1,9 @@
+
+<p [ngClass]="{'done': todo.isDone}">{{todo?.title}} <label for="mc"></label>
+	<input
+	type="checkbox"
+	name="mc"
+	id="mc"
+	[checked]="todo.isDone"
+	(change)="handleCheckBoxChange()">
+</p>

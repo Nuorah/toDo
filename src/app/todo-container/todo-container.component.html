@@ -1,0 +1,6 @@
+<ul>
+	<app-todo-form></app-todo-form>
+	<p>There are {{getTodosLeft()}} things left to do.</p>
+	<app-todo-list [todos]="todos" (todoChecked)="handleTodoChecked($event)"></app-todo-list>
+	
+</ul>
