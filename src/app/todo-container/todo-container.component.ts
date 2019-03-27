@@ -11,7 +11,17 @@ import _ from 'lodash';
 export class TodoContainerComponent implements OnInit {
 
 	@Input()
-	todos:Array<Todo> = todosData.map(todo => new Todo(todo.id, todo.title, todo.isDone));
+	todos:Array<Todo> = [] //todosData.map(todo => new Todo(todo.id, todo.title, todo.isDone));
+
+	@Input()
+	todoToAdd:string;
+
+	getTodoToAdd(todoTitle){
+		const todoToAdd = new Todo(this.todos.length + 1, todoTitle);
+
+		this.todos = [...this.todos, {...todoToAdd}].sort((a, b) => a.id - b.id)
+		console.log(this.todos);
+	}
 
 	handleTodoChecked(todo){
 		const todoToChange = todo;
@@ -23,6 +33,10 @@ export class TodoContainerComponent implements OnInit {
 
 	getTodosLeft(){
 		return this.todos.filter(todo => !todo.isDone).length;
+	}
+
+	resetTodos(){
+		this.todos = [];
 	}
 
 	constructor() { }

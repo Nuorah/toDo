@@ -1,7 +1,11 @@
-
+<div>
 <input
-	type="form"
-	name="addTodo"
-	id="addTodo"
-	>
-	<input type="submit" value="Add todo" (click)>
+type="text"
+name="todoForm"
+id="todoForm"
+[value]="value"
+(keyup)="changeValue($event)"
+>
+<button (click)="giveTodoToAdd()">Add todo</button>
+</div>
+<button (click)="resetTodos()">Reset todos</button>

@@ -15,8 +15,6 @@ export class TodoListComponent implements OnInit {
 	@Output()
 	todoChecked:EventEmitter<Todo> = new EventEmitter<Todo>();
 
-
-
 	handleTodoChecked(todo){
 		this.todoChecked.emit(todo);
 	}	

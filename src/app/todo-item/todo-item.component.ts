@@ -13,14 +13,10 @@ export class TodoItemComponent implements OnInit {
 
 	@Output()
 	todoChecked:EventEmitter<Todo> = new EventEmitter<Todo>();
-
-	checkedTodo() {
-		this.todoChecked.emit(this.todo);
-	}
-
+	
 	handleCheckBoxChange(){
 		//this.todo.isDone = !this.todo.isDone;
-		this.checkedTodo();
+		this.todoChecked.emit(this.todo);
 	}
 
 	
