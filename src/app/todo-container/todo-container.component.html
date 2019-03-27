@@ -4,8 +4,8 @@
 		<p >There is nothing to do</p></div>
 		<ng-template #list>
 			<div [ngSwitch]="getTodosLeft()">
-				<p *ngSwitchCase="0">There is nothing to do : </p>
-				<p *ngSwitchCase="1">There is one thing to do : </p>
+				<p *ngSwitchCase="0">Everything is done! Go have some rest.</p>
+				<p *ngSwitchCase="1">There is one thing left to do : </p>
 				<p *ngSwitchDefault>There are {{getTodosLeft()}} things left to do : </p>
 			</div>
 			<app-todo-list [todos]="todos"  (todoChecked)="handleTodoChecked($event)" ></app-todo-list>

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
 import Todo from '../model/Todo';
-import todosData from '../mocks/todoMocks.json';
 import _ from 'lodash';
 
 @Component({
