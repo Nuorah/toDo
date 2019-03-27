@@ -1,11 +1,12 @@
-<div>
-<input
-type="text"
-name="todoForm"
-id="todoForm"
-[value]="value"
-(keyup)="changeValue($event)"
->
-<button (click)="giveTodoToAdd()">Add todo</button>
-</div>
-<button (click)="resetTodos()">Reset todos</button>
+
+<mat-form-field>
+	<input matInput
+	[value]="value"
+	(keyup)="changeValue($event)"
+	>
+</mat-form-field>
+<mat-card-actions>
+<button mat-raised-button (click)="giveTodoToAdd()">Add todo</button>
+
+<button mat-raised-button (click)="resetTodos()">Reset todos</button>
+</mat-card-actions>
