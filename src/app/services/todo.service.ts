@@ -12,7 +12,7 @@ export default class TodoService{
 	add(title){
 		this.apiService.createTodo(new Todo(title))
 		.subscribe((result:any) => {
-			this.initialize();
+			this.todos = [...this.todos, result].sort((a, b) => a.id - b.id);
 		},() => {
 			console.log('error');
 		}, () => {
@@ -24,7 +24,7 @@ export default class TodoService{
 	toggle(todo){
 		this.apiService.toggleTodo(todo)
 		.subscribe((result:any) => {
-			this.initialize();
+			this.todos = [..._.without(this.todos, todo), result].sort((a, b) => a.id - b.id) 
 		},() => {
 			console.log('error');
 		}, () => {
@@ -39,9 +39,9 @@ export default class TodoService{
 	delete(todo){
 		this.apiService.deleteTodo(todo)
 		.subscribe((result:any) => {
-			this.initialize();
-		},() => {
-			console.log('error');
+			this.todos = _.without(this.todos, todo);
+		},(e:any) => {
+			console.log(e);
 		}, () => {
 			//console.log('complete');
 		});
