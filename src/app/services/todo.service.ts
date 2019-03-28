@@ -1,4 +1,4 @@
-import Todo from '../model/Todo';
+import Todo from '../model/todo';
 import { Injectable} from '@angular/core';
 import ApiService from '../services/api.service';
 import _ from 'lodash';
