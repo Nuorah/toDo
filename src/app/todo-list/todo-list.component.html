@@ -1,7 +1,6 @@
 <mat-list *ngFor="let todo of todos">
 	<mat-list-item>
-	<app-todo-item class="todoItem" [todo]="todo"
-					(todoChecked)="handleTodoChecked($event)"></app-todo-item>
+	<app-todo-item class="todoItem" [todo]="todo"></app-todo-item>
 				</mat-list-item>
 </mat-list>
 

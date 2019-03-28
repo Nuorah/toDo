@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import Todo from '../model/Todo';
+import TodoServices from '../services/TodoServices';
 
 @Component({
 	selector: 'app-todo-list',
@@ -12,14 +13,7 @@ export class TodoListComponent implements OnInit {
 	@Input()
 	todos:Todo[];
 
-	@Output()
-	todoChecked:EventEmitter<Todo> = new EventEmitter<Todo>();
-
-	handleTodoChecked(todo){
-		this.todoChecked.emit(todo);
-	}	
-
-	constructor() { }
+	constructor(private todoServices: TodoServices) { }
 
 	ngOnInit() {
 	}

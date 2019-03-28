@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import TodoServices from '../services/TodoServices';
 
 @Component({
 	selector: 'app-todo-form',
@@ -9,26 +10,23 @@ export class TodoFormComponent implements OnInit {
 
 	value:string = '';
 
-	@Output()
-	todoToAdd:EventEmitter<string> = new EventEmitter<string>();
-
-	@Output()
-	resetTodosEvent:EventEmitter<string> = new EventEmitter<string>();
-
-	resetTodos(){
-		this.resetTodosEvent.emit()
+	deleteAll(){
+		this.todoServices.deleteAll()
 	}
 
 	changeValue(event){
-		this.value = event.target.value;
+		if(event.key === "Enter"){
+			this.add();
+		} else {
+			this.value = event.target.value;
+		}
 	}
 
-	giveTodoToAdd(){
-		this.todoToAdd.emit(this.value);
-		console.log(this.value);
+	add(){
+		this.todoServices.add(this.value);
 	}
 
-	constructor() { }
+	constructor(private todoServices: TodoServices) { }
 
 	ngOnInit() {
 	}

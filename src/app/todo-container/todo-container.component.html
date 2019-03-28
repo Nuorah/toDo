@@ -3,22 +3,20 @@
 		TODO list
 	</mat-card-title>
 	<mat-card-actions>
-		<app-todo-form (todoToAdd)="getTodoToAdd($event)" (resetTodosEvent)="resetTodos()"></app-todo-form>
+		<app-todo-form></app-todo-form>
 	</mat-card-actions>
 	<mat-card-content>
-		<mat-card-subtitle *ngIf="todos.length === 0; else list">
+		<mat-card-subtitle *ngIf="todoServices.todos.length === 0; else list">
 			<p>There is nothing to do</p></mat-card-subtitle>
 		</mat-card-content>
 		<mat-card-content>
 			<ng-template #list>
-				
 				<mat-card-subtitle [ngSwitch]="getTodosLeft()">
 					<p *ngSwitchCase="0">Everything is done! Go have some rest.</p>
 					<p *ngSwitchCase="1">There is one thing left to do : </p>
 					<p *ngSwitchDefault>There are {{getTodosLeft()}} things left to do : </p>
 				</mat-card-subtitle>
-				
-				<app-todo-list [todos]="todos"  (todoChecked)="handleTodoChecked($event)" ></app-todo-list>
+				<app-todo-list [todos]="todoServices.todos"></app-todo-list>
 			</ng-template>
 		</mat-card-content>
 	</mat-card>

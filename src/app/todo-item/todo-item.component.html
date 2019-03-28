@@ -1,12 +1,14 @@
-<mat-card mat-list-item>
+<mat-card-content mat-list-item class='todoCard'>
 		<mat-checkbox 	 
 		[checked]="todo.isDone"
-		(change)="handleCheckBoxChange()">
-		<span [ngClass]="{'done': todo.isDone, '.todoCard-text' : true}">
-			{{todo?.title}}
+		(change)="toggle()">
+		<span [ngClass]="{'done': todo.isDone, 'todoCard-text' : true}">
+			{{todo?.title}}   
 		</span>
+		<button mat-icon-button class='deleteIcon' (click)="delete()">&times;</button>
 	</mat-checkbox>
-</mat-card>
+	
+</mat-card-content>
 
 
 

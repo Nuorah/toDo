@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
 import Todo from '../model/Todo';
+import TodoServices from '../services/TodoServices';
 
 @Component({
 	selector: 'app-todo-item',
@@ -12,19 +13,16 @@ export class TodoItemComponent implements OnInit {
 
 	@Input()
 	todo:Todo;
-
-	@Output()
-	todoChecked:EventEmitter<Todo> = new EventEmitter<Todo>();
 	
-	handleCheckBoxChange(){
-		//this.todo.isDone = !this.todo.isDone;
-		this.todoChecked.emit(this.todo);
+	toggle(){
+		this.todoServices.toggle(this.todo);
 	}
 
-	constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-		iconRegistry.addSvgIcon(
-			'delete',
-			sanitizer.bypassSecurityTrustResourceUrl('assets/img/delete.svg'));
+	delete(){
+		this.todoServices.delete(this.todo);
+	}
+
+	constructor(private todoServices: TodoServices) {
 	}
 
 	ngOnInit() {

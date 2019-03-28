@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import Todo from '../model/Todo';
-import _ from 'lodash';
+import TodoServices from '../services/TodoServices';
+
 
 @Component({
 	selector: 'app-todo-container',
@@ -10,35 +11,13 @@ import _ from 'lodash';
 export class TodoContainerComponent implements OnInit {
 
 	@Input()
-	todos:Todo[] = []; //todosData.map(todo => new Todo(todo.id, todo.title, todo.isDone));
-
-	@Input()
 	todoToAdd:string;
 
-	getTodoToAdd(todoTitle){
-		const todoToAdd = new Todo(this.todos.length + 1, todoTitle);
-
-		this.todos = [...this.todos, {...todoToAdd}].sort((a, b) => a.id - b.id)
-		console.log(this.todos);
-	}
-
-	handleTodoChecked(todo){
-		const todoToChange = todo;
-
-		const todoList = _.without(this.todos, todo);
-
-		this.todos = [...todoList, {...todoToChange, isDone : !todoToChange.isDone}].sort((a, b) => a.id - b.id)
-	}
-
 	getTodosLeft(){
-		return this.todos.filter(todo => !todo.isDone).length;
+		return this.todoServices.todos.filter(todo => !todo.isDone).length;
 	}
 
-	resetTodos(){
-		this.todos = [];
-	}
-
-	constructor() { }
+	constructor(private todoServices: TodoServices) { }
 
 	ngOnInit() {
 		
