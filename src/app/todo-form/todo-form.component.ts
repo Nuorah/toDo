@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import TodoServices from '../services/TodoServices';
+import TodoService from '../services/todo.service';
 
 @Component({
 	selector: 'app-todo-form',
@@ -11,7 +11,7 @@ export class TodoFormComponent implements OnInit {
 	value:string = '';
 
 	deleteAll(){
-		this.todoServices.deleteAll()
+		this.todoService.deleteAll()
 	}
 
 	changeValue(event){
@@ -23,10 +23,10 @@ export class TodoFormComponent implements OnInit {
 	}
 
 	add(){
-		this.todoServices.add(this.value);
+		this.todoService.add(this.value);
 	}
 
-	constructor(private todoServices: TodoServices) { }
+	constructor(private todoService: TodoService) { }
 
 	ngOnInit() {
 	}

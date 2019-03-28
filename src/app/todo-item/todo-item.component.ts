@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
-import Todo from '../model/Todo';
-import TodoServices from '../services/TodoServices';
+import Todo from '../model/todo';
+import TodoService from '../services/todo.service';
 
 @Component({
 	selector: 'app-todo-item',
@@ -15,14 +15,14 @@ export class TodoItemComponent implements OnInit {
 	todo:Todo;
 	
 	toggle(){
-		this.todoServices.toggle(this.todo);
+		this.todoService.toggle(this.todo);
 	}
 
 	delete(){
-		this.todoServices.delete(this.todo);
+		this.todoService.delete(this.todo);
 	}
 
-	constructor(private todoServices: TodoServices) {
+	constructor(private todoService: TodoService) {
 	}
 
 	ngOnInit() {

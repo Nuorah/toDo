@@ -6,7 +6,7 @@
 		<app-todo-form></app-todo-form>
 	</mat-card-actions>
 	<mat-card-content>
-		<mat-card-subtitle *ngIf="todoServices.todos.length === 0; else list">
+		<mat-card-subtitle *ngIf="todoService.todos.length === 0; else list">
 			<p>There is nothing to do</p></mat-card-subtitle>
 		</mat-card-content>
 		<mat-card-content>
@@ -16,7 +16,7 @@
 					<p *ngSwitchCase="1">There is one thing left to do : </p>
 					<p *ngSwitchDefault>There are {{getTodosLeft()}} things left to do : </p>
 				</mat-card-subtitle>
-				<app-todo-list [todos]="todoServices.todos"></app-todo-list>
+				<app-todo-list [todos]="todoService.todos"></app-todo-list>
 			</ng-template>
 		</mat-card-content>
 	</mat-card>

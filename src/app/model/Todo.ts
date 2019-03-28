@@ -3,7 +3,7 @@ export class Todo{
 	title:string;
 	isDone:Boolean;
 
-	constructor(id:number, title:string, isDone:Boolean = false){
+	constructor(title:string, isDone:Boolean = false, id?:number){
 		this.id = id;
 		this.title = title;
 		this.isDone = isDone;

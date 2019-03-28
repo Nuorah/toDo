@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import Todo from '../model/Todo';
-import TodoServices from '../services/TodoServices';
+import Todo from '../model/todo';
 
 @Component({
 	selector: 'app-todo-list',
@@ -13,7 +12,7 @@ export class TodoListComponent implements OnInit {
 	@Input()
 	todos:Todo[];
 
-	constructor(private todoServices: TodoServices) { }
+	constructor() { }
 
 	ngOnInit() {
 	}

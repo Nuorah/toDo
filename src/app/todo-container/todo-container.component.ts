@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
-import Todo from '../model/Todo';
-import TodoServices from '../services/TodoServices';
+import Todo from '../model/todo';
+import TodoService from '../services/todo.service';
+import ApiService from '../services/api.service';
 
 
 @Component({
@@ -14,16 +15,14 @@ export class TodoContainerComponent implements OnInit {
 	todoToAdd:string;
 
 	getTodosLeft(){
-		return this.todoServices.todos.filter(todo => !todo.isDone).length;
+		return this.todoService.todos.filter(todo => !todo.isDone).length;
 	}
 
-	constructor(private todoServices: TodoServices) { }
+	constructor(private todoService: TodoService, private apiService: ApiService) { }
 
 	ngOnInit() {
-		
+		this.todoService.initialize();
 	}
-
-	
 }
 
 
